@@ -1,0 +1,436 @@
+@import url("https://fonts.googleapis.com/css?family=Anton|Roboto");
+
+.word {
+  font-family: "Anton", sans-serif;
+  perspective: 1000px;
+}
+
+.word span {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 100px;
+  user-select: none;
+  line-height: 0.8;
+}
+
+.word span:nth-child(1).active {
+  animation: balance 1.5s ease-out;
+  transform-origin: bottom left;
+}
+
+@keyframes balance {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  30%,
+  60% {
+    transform: rotate(-45deg);
+  }
+}
+
+.word span:nth-child(2).active {
+  animation: shrinkjump 1s ease-in-out;
+  transform-origin: bottom center;
+}
+
+@keyframes shrinkjump {
+  10%,
+  35% {
+    transform: scale(2, 0.2) translate(0, 0);
+  }
+
+  45%,
+  50% {
+    transform: scale(1) translate(0, -150px);
+  }
+
+  80% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+.word span:nth-child(3).active {
+  animation: falling 2s ease-out;
+  transform-origin: bottom center;
+}
+
+@keyframes falling {
+  12% {
+    transform: rotateX(240deg);
+  }
+
+  24% {
+    transform: rotateX(150deg);
+  }
+
+  36% {
+    transform: rotateX(200deg);
+  }
+
+  48% {
+    transform: rotateX(175deg);
+  }
+
+  60%,
+  85% {
+    transform: rotateX(180deg);
+  }
+
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+.word span:nth-child(4).active {
+  animation: rotate 1s ease-out;
+}
+
+@keyframes rotate {
+  20%,
+  80% {
+    transform: rotateY(180deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.word span:nth-child(5).active {
+  animation: toplong 1.5s linear;
+}
+
+@keyframes toplong {
+  10%,
+  40% {
+    transform: translateY(-48vh) scaleY(1);
+  }
+
+  90% {
+    transform: translateY(-48vh) scaleY(4);
+  }
+}
+
+/* Other styles */
+body {
+  background-color: skyblue;
+  color: #fff;
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 100vh;
+  margin: 0;
+}
+
+.fixed {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+footer i {
+  color: red;
+}
+
+footer a {
+  color: #3c97bf;
+  text-decoration: none;
+}
+
+:root {
+  --color-background: #31037d;
+  --axis-x: 1px;
+  --axis-y: 1rem;
+  --delay: 10;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-orange: #d49c3d;
+  --color-red: #d14b3d;
+  --color-violet: #cf52eb;
+  --color-blue: #44a3f7;
+  --color-green: #5acb3c;
+  --color-yellow: #debf40;
+  --color-foreground: var(--color-white);
+  --font-name: Righteous;
+}
+
+html,
+body {
+  font-size: 24px;
+}
+
+body {
+  background-color: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-name);
+  height: 100vh;
+}
+
+.c-rainbow {
+  counter-reset: rainbow;
+  position: relative;
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.c-rainbow__layer {
+  --text-color: var(--color-foreground);
+  counter-increment: rainbow;
+  font-size: 3rem;
+  color: var(--text-color);
+  text-shadow: -1px -1px 0 var(--color-black), 1px -1px 0 var(--color-black),
+    -1px 1px 0 var(--color-black), 1px 1px 0 var(--color-black),
+    4px 4px 0 rgba(0, 0, 0, 0.2);
+  animation: rainbow 1.5s ease-in-out infinite;
+}
+.c-rainbow__layer:nth-child(1) {
+  animation-delay: calc(1 / var(--delay) * 1s);
+  left: calc(var(--axis-x) * 1);
+  z-index: -10;
+}
+.c-rainbow__layer:nth-child(2) {
+  animation-delay: calc(2 / var(--delay) * 1s);
+  left: calc(var(--axis-x) * 2);
+  z-index: -20;
+}
+.c-rainbow__layer:nth-child(3) {
+  animation-delay: calc(3 / var(--delay) * 1s);
+  left: calc(var(--axis-x) * 3);
+  z-index: -30;
+}
+.c-rainbow__layer:nth-child(4) {
+  animation-delay: calc(4 / var(--delay) * 1s);
+  left: calc(var(--axis-x) * 4);
+  z-index: -40;
+}
+.c-rainbow__layer:nth-child(5) {
+  animation-delay: calc(5 / var(--delay) * 1s);
+  left: calc(var(--axis-x) * 5);
+  z-index: -50;
+}
+.c-rainbow__layer:nth-child(6) {
+  animation-delay: calc(6 / var(--delay) * 1s);
+  left: calc(var(--axis-x) * 6);
+  z-index: -60;
+}
+.c-rainbow__layer:nth-child(7) {
+  animation-delay: calc(7 / var(--delay) * 1s);
+  left: calc(var(--axis-x) * 7);
+  z-index: -70;
+}
+.c-rainbow__layer:not(:first-child) {
+  position: absolute;
+  top: 0;
+}
+.c-rainbow__layer--white {
+  --text-color: var(--color-white);
+}
+.c-rainbow__layer--orange {
+  --text-color: var(--color-orange);
+}
+.c-rainbow__layer--red {
+  --text-color: var(--color-red);
+}
+.c-rainbow__layer--violet {
+  --text-color: var(--color-violet);
+}
+.c-rainbow__layer--blue {
+  --text-color: var(--color-blue);
+}
+.c-rainbow__layer--green {
+  --text-color: var(--color-green);
+}
+.c-rainbow__layer--yellow {
+  --text-color: var(--color-yellow);
+}
+
+@keyframes rainbow {
+  0%,
+  100% {
+    transform: translatey(var(--axis-y));
+  }
+  50% {
+    transform: translatey(calc(var(--axis-y) * -1));
+  }
+}
+
+/* body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f6f7;
+} */
+
+.name {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 3em;
+  color: #f791cc; /* Pastel orange */
+  text-shadow: 4px 4px 4px rgba(0, 179, 255, 0.66);
+  animation: slideIn 2s ease-in-out infinite alternate;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(5px);
+  }
+}
+
+/* body {
+  background: #111115;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+} */
+
+.heart {
+  font-size: 2em;
+  position: relative;
+}
+
+.heartbeat {
+  position: relative;
+  z-index: 1;
+  animation: beat 2s linear infinite;
+}
+
+.heartecho {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  animation: echo 2s linear infinite;
+}
+
+@keyframes beat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(0.9);
+  }
+  21% {
+    transform: scale(1.1) skew(0.004turn);
+  }
+  28% {
+    transform: scale(1) skew(0.008turn);
+  }
+  35% {
+    transform: scale(1) skew(0);
+  }
+}
+
+@keyframes echo {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  14% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  21% {
+    opacity: 0.4;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.typewriter {
+  padding: 1rem 0;
+}
+.typewriter h1 {
+  color: #fff;
+  font-size: 0.8rem;
+  font-family: monospace;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite;
+  animation-fill-mode: both;
+}
+.typewriter h1:nth-child(2) {
+  animation-delay: 4s;
+}
+.typewriter h1:nth-child(3) {
+  animation-delay: 8s;
+}
+
+.typwritersecond {
+  color: #e48080;
+  font-size: 0.8rem;
+  font-family: monospace;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite;
+  animation-fill-mode: both;
+}
+.typwritersecond h1:nth-child(2) {
+  animation-delay: 4s;
+}
+.typwritersecond h1:nth-child(3) {
+  animation-delay: 8s;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}

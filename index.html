@@ -1,54 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome Page</title>
+    <link rel="stylesheet" href="style.css" />
     <style>
-        body {
-            background-color: #121212;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .message {
-            font-size: 2rem;
-            text-align: center;
-        }
-        .button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            background-color: #1e90ff;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-        }
-        .button span {
-            margin-left: 10px;
-        }
+      body {
+        background-color: #121212;
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .message {
+        font-size: 2rem;
+        text-align: center;
+      }
+      .button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        background-color: #1e90ff;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+      }
+      .button span {
+        margin-left: 10px;
+      }
     </style>
-</head>
-<body>
-    <div class="message">
-        Hi <span id="name">[Your Name]</span>, you can achieve anything. I am always with you.
-    </div>
-    <button class="button" onclick="navigateToFlowers()">
+  </head>
+  <body>
+    <!-- <div class="word">
+      <span>N</span>
+      <span>A</span>
+      <span>N</span>
+      <span>C</span>
+      <span>Y</span>
+    </div> -->
+    <div class="container">
+      <span class="name">Nancy</span>
+      <div class="heart">
+        <div class="heartbeat">❤️</div>
+        <div class="heartecho">❤️</div>
+      </div>
+      <!-- <ul class="c-rainbow">
+        <li class="c-rainbow__layer c-rainbow__layer--white">NANCY</li>
+        <li class="c-rainbow__layer c-rainbow__layer--orange">NANCY</li>
+        <li class="c-rainbow__layer c-rainbow__layer--red">NANCY</li>
+        <li class="c-rainbow__layer c-rainbow__layer--violet">NANCY</li>
+        <li class="c-rainbow__layer c-rainbow__layer--blue">NANCY</li>
+        <li class="c-rainbow__layer c-rainbow__layer--green">NANCY</li>
+        <li class="c-rainbow__layer c-rainbow__layer--yellow">NANCY</li>
+      </ul> -->
+      <div class="typewriter">
+        <h1>You were the colors</h1>
+        <h1>that lead me out of my</h1>
+        <h1>grey and dark world</h1>
+      </div>
+      <!-- <div class="message">You can achieve anything. I am always with you.</div> -->
+      <button class="button" onclick="navigateToFlowers()">
         😊 <span>Click me</span>
-    </button>
+      </button>
+    </div>
 
     <script>
-        function navigateToFlowers() {
-            window.location.href = 'flowers.html';
-        }
+      function navigateToFlowers() {
+        window.location.href = "flowers.html";
+      }
+      const spans = document.querySelectorAll(".word span");
+
+      spans.forEach((span, idx) => {
+        span.addEventListener("click", (e) => {
+          e.target.classList.add("active");
+        });
+        span.addEventListener("animationend", (e) => {
+          e.target.classList.remove("active");
+        });
+
+        // Initial animation
+        setTimeout(() => {
+          span.classList.add("active");
+        }, 750 * (idx + 1));
+      });
     </script>
-</body>
+  </body>
 </html>
